@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import { v4 as uuidv4 } from "uuid";
 import { ExpenseTrackerContext } from "../../../context/context";
+import { incomeCategories, expenseCategories } from '../../../constants/categories';
 
 import useStyles from "./styles";
 
@@ -36,6 +37,8 @@ const Form = () => {
     addTransaction(transaction);
     setFormData(initialState);
   };
+
+  const selectedCategories = formData.type === 'Income' ? incomeCategories : expenseCategories;
 
   return (
     <Grid container spacing={2}>
@@ -65,8 +68,7 @@ const Form = () => {
               setFormData({ ...formData, category: e.target.value })
             }
           >
-            <MenuItem value="business">Kinh doanh</MenuItem>
-            <MenuItem value="salary">Lương</MenuItem>
+            {selectedCategories.map((c) => <MenuItem key={c.type} value={c.type}>{c.type}</MenuItem>)}
           </Select>
         </FormControl>
       </Grid>
