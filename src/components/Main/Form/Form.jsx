@@ -19,7 +19,7 @@ import useStyles from "./styles";
 const initialState = {
   amount: "",
   category: "",
-  type: "Thu nhập",
+  type: "Income",
   date: formatDate(new Date()),
 };
 
@@ -50,19 +50,19 @@ const Form = () => {
       </Grid>
       <Grid item xs={6}>
         <FormControl fullWidth>
-          <InputLabel>Kiểu</InputLabel>
+          <InputLabel>Type</InputLabel>
           <Select
             value={formData.type}
             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
           >
-            <MenuItem value="Income">Thu nhập</MenuItem>
-            <MenuItem value="Expense">Chi tiêu</MenuItem>
+            <MenuItem value="Income">Income</MenuItem>
+            <MenuItem value="Expense">Expense</MenuItem>
           </Select>
         </FormControl>
       </Grid>
       <Grid item xs={6}>
         <FormControl fullWidth>
-          <InputLabel>Loại</InputLabel>
+          <InputLabel>Category</InputLabel>
           <Select
             value={formData.category}
             onChange={(e) =>
@@ -76,7 +76,7 @@ const Form = () => {
       <Grid item xs={6}>
         <TextField
           type="number"
-          label="Số lượng"
+          label="Amount"
           onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
           fullWidth
         />
@@ -84,7 +84,7 @@ const Form = () => {
       <Grid item xs={6}>
         <TextField
           type="date"
-          label="Ngày tháng"
+          label="Date"
           onChange={(e) => setFormData({ ...formData, date: formatDate(e.target.value) })}
           fullWidth
         />

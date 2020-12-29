@@ -9,7 +9,7 @@ const Details = ({ title }) => {
 
   return (
     <div>
-      <Card className={title === "Thu nhập" ? classes.income : classes.expense}>
+      <Card className={title === "Income" ? classes.income : classes.expense}>
         <CardHeader title={title} />
         <CardContent>
           <Typography variant="h5">$50</Typography>
